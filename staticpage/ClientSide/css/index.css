@@ -65,8 +65,11 @@ ul{
 .dd,.ff{
     height: 30px;
     margin-right: 10px;
-    background-color: rgb(93, 70, 243);
+    background-color: #4CAF50;
+    color: white;
     border-radius: 8px;
+    border: none;
+    cursor: pointer;
 }
 
 p{

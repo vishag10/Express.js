@@ -4,7 +4,7 @@ async function addTodo(){
     try {
         
         const task=document.getElementById("task").value;
-        const res= await fetch("http://localhost:3000/addtodo",{
+        const res= await fetch("http://localhost:3000/api/addtodo",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify({task})
@@ -27,7 +27,7 @@ async function addTodo(){
 
 async function getTodos(){
     try {
-        const res= await fetch(API+"/gettodos")
+        const res= await fetch(API+"/api/gettodos")
         if(res.status==200){
             const data=await res.json();
             str=``
@@ -53,7 +53,8 @@ getTodos()
 
 
 async function isCompleted(_id,isCompleted){
-    const res=await fetch(API+`/iscompleted/${_id}`,
+    
+    const res=await fetch(API+`/api/iscompleted/${_id}`,
         {
             method:"PUT",
             headers:{"Content-Type":"application/json"},
@@ -69,7 +70,7 @@ async function isCompleted(_id,isCompleted){
 
  async function deleteTodo(_id){
     console.log(_id);
-    const res=await fetch(API+`/deletetodo/${_id}`,
+    const res=await fetch(API+`/api/deletetodo/${_id}`,
         {
             method:"DELETE",
             headers:{"Content-Type":"application/json"}
@@ -84,7 +85,7 @@ async function isCompleted(_id,isCompleted){
 async function editTodo(_id){
     // console.log(_id);
     const task=prompt("Edit task");
-    const res=await fetch(API+`/update/${_id}`,
+    const res=await fetch(API+`/api/update/${_id}`,
         {
             method:"PUT",
             headers:{"Content-Type":"application/json"},
